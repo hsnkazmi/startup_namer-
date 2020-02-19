@@ -1,29 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
+
 void main() => runApp(MyApp());
-//what is statelesswidget
+
+// #docregion MyApp
 class MyApp extends StatelessWidget {
+  // #docregion build
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Startup Name Generator',
       home: RandomWords(),
-
     );
   }
-  }
+}
+
 class RandomWordsState extends State<RandomWords> {
   final _suggestions = <WordPair>[];
   final _biggerFont = const TextStyle(fontSize: 18.0);
   @override
-    Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Startup Name Generator'),
       ),
       body: _buildSuggestions(),
     );
-
   }
   Widget _buildSuggestions() {
     return ListView.builder(
@@ -38,6 +40,7 @@ class RandomWordsState extends State<RandomWords> {
           return _buildRow(_suggestions[index]);
         });
   }
+
   Widget _buildRow(WordPair pair) {
     return ListTile(
       title: Text(
@@ -47,9 +50,12 @@ class RandomWordsState extends State<RandomWords> {
     );
   }
 
-}
-class RandomWords extends StatefulWidget {
 
+
+}
+
+class RandomWords extends StatefulWidget {
   @override
   RandomWordsState createState() => RandomWordsState();
 }
+//push updated 12.41
